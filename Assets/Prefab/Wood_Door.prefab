@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5649342761060011565}
   m_Layer: 0
   m_Name: Wood_Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,11 +137,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa574c328102634aa7fb796ce8c5bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  talkManager: {fileID: 0}
   sprite:
   - {fileID: 2911756321161029798, guid: 3bc2c54afd52a294a841e676f98e2a62, type: 3}
   - {fileID: 1557558626812731338, guid: 3bc2c54afd52a294a841e676f98e2a62, type: 3}
   isOpen: 0
   key: 0
+  defaultText:
+  - "\uB2EB\uD600\uC788\uB2E4"
+  - "\uC5F4\uC1E0\uAC00 \uD544\uC694\uD560 \uAC83 \uAC19\uB2E4"
+  afterText:
+  - "\uC5F4\uB838\uB2E4"
+  - "\uB4E4\uC5B4\uAC00 \uBCF4\uC790"
 --- !u!222 &5649342761060011731
 CanvasRenderer:
   m_ObjectHideFlags: 0

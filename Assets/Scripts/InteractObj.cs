@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InteractObj : MonoBehaviour, IPointerClickHandler
+public class InteractObj : MonoBehaviour
 {
+    public TalkManager talkManager;
+
     [Header("0¹ø ½½·ÔÀÌ ´ÝÈû 1¹ø ½½·ÔÀÌ ¿­¸²")]
     public Sprite[] sprite = new Sprite[2];
 
@@ -13,6 +15,11 @@ public class InteractObj : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     bool isOpen;
     public bool key = false;
+
+    public string[] defaultText;
+    public string[] afterText;
+
+    bool isTextAction;
 
     private void Awake()
     {
@@ -24,29 +31,13 @@ public class InteractObj : MonoBehaviour, IPointerClickHandler
         door.sprite = sprite[0];
     }
 
-    void Open()
+    public void Open()
     {
         door.sprite = sprite[1];
     }
 
-    void Close()
+    public void Close()
     {
         door.sprite = sprite[0];
-    }
-    
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        // ¸¶¿ì½º ¿ÞÂÊ ¹öÆ°À» ´­·¶À» ¶§
-        if (eventData.button == PointerEventData.InputButton.Left)
-        {
-            if (key)
-            {
-                Open();
-            }
-            else
-            {
-                Debug.Log("¿­¼è°¡ ¾ø½À´Ï´Ù.");
-            }
-        }
     }
 }
