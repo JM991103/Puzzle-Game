@@ -10,7 +10,7 @@ public class ItemData : ScriptableObject
     [Header("아이템의 이름")]
     public string itemName = "아이템";       // 아이템의 이름
     [Header("아이템의 외형")]
-    public Sprite modelPrefab;          // 아이템의 외형을 표시할 프리팹
+    public Sprite modelPrefab;              // 아이템의 외형을 표시할 프리팹
     [Header("인벤토리에서 보일 스프라이트")]
     public Sprite itemIcon;                 // 아이템이 인벤토리에서 보일 스프라이트
     [Header("한칸에 들어갈 수 있는 최대 누적 개수")]

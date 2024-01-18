@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ItemIDCode
 {
-    StartRoom_Key = 0,
+    StartRoom_Key = 1000,
     OneRoom_Key,
     TowRoom_Key,
     Attic_Key,

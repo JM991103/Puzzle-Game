@@ -6,14 +6,16 @@ public class Key : MonoBehaviour
 {
     public TalkManager talkManager;
 
-    public string keyName;
+    public ItemData itemData;
 
-    public int keyID;
+    // 습득 했는가
+    public bool isAcquisition;
 
-    public bool acquisition;
+    // 사용 했는가
+    public bool isUse;
 
     public void Toggle()
     {
-
+        
     }
 }
