@@ -14,7 +14,8 @@ public class TalkManager : MonoBehaviour
 
     TextMeshProUGUI talkText;
 
-    InteractObj intObj;
+    GameObject intObj;
+    InteractObj doorObj;
 
     bool isActive= false;
 
@@ -42,21 +43,22 @@ public class TalkManager : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    intObj = hit.transform.gameObject.GetComponent<InteractObj>();
+                    intObj = hit.transform.gameObject;
                     if (intObj.CompareTag("Door"))
                     {
-                        if (!intObj.key)
+                        doorObj = intObj.GetComponent<InteractObj>();
+                        if (!doorObj.key)
                         {
                             talkPanel.SetActive(true);
-                            talkText.text = intObj.defaultText[defaultTalkIndex];
+                            talkText.text = doorObj.defaultText[defaultTalkIndex];
                         }
                         else
                         {
                             if (!isActive)
                             {
                                 talkPanel.SetActive(true);
-                                intObj.Open();
-                                talkText.text = intObj.afterText[afterTalkIndex];
+                                doorObj.Open();
+                                talkText.text = doorObj.afterText[afterTalkIndex];
                                 isActive = true;
                             }
                             else
@@ -65,31 +67,36 @@ public class TalkManager : MonoBehaviour
                             }
                         }
                     }
+                    else if (intObj.CompareTag("Item"))
+                    {
+                        Debug.Log(intObj.name);
+                    }
                 }
+                
             }
             else
             {         
                 // 패널이 열려 있을 때
-                if (defaultTalkIndex == intObj.defaultText.Length -1)
+                if (defaultTalkIndex == doorObj.defaultText.Length -1)
                 {
                     defaultTalkIndex = 0;
                     talkPanel.SetActive(false);
                 }                
-                else if(!intObj.key)
+                else if(!doorObj.key)
                 {
                     defaultTalkIndex++;
-                    talkText.text = intObj.defaultText[defaultTalkIndex];
+                    talkText.text = doorObj.defaultText[defaultTalkIndex];
                 }
 
-                if (afterTalkIndex == intObj.afterText.Length -1)
+                if (afterTalkIndex == doorObj.afterText.Length -1)
                 {
                     afterTalkIndex = 0;
                     talkPanel.SetActive(false);
                 }
-                else if(intObj.key)
+                else if(doorObj.key)
                 {
                     afterTalkIndex++;
-                    talkText.text = intObj.afterText[afterTalkIndex];                    
+                    talkText.text = doorObj.afterText[afterTalkIndex];                    
                 }
             }
         }
